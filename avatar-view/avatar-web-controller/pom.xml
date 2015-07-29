@@ -10,6 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>avatar-web-controller</artifactId>
-
+    <name>${project.artifactId}</name>
 
 </project>
