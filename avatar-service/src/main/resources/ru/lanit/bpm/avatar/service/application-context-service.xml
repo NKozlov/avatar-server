@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="targetConnectionFactory" class="com.ibm.mq.jms.MQQueueConnectionFactory">
+        <property name="transportType" value="1"/>
+        <property name="hostName" value="${mq.hostName}"/>
+        <property name="channel" value="${mq.channel}"/>
+        <property name="port" value="${mq.port}"/>
+        <property name="queueManager" value="${mq.queueManager}"/>
+    </bean>
+
+    <bean id="connectionFactory" class="org.springframework.jms.connection.UserCredentialsConnectionFactoryAdapter">
+        <property name="targetConnectionFactory" ref="targetConnectionFactory"/>
+        <property name="username" value="mqm"/>
+        <property name="password" value="mqm"/>
+    </bean>
+
+</beans>

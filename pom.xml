@@ -11,10 +11,22 @@
     <name>${project.artifactId}</name>
     <modules>
         <module>avatar-view</module>
+        <module>avatar-service</module>
     </modules>
 
     <dependencyManagement>
         <dependencies>
+            <!--Child modules-->
+            <dependency>
+                <groupId>ru.lanit.bpm.avatar</groupId>
+                <artifactId>avatar-web-controller</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>ru.lanit.bpm.avatar</groupId>
+                <artifactId>avatar-service</artifactId>
+                <version>${project.version}</version>
+            </dependency>
             <!-- spring core-->
             <dependency>
                 <groupId>org.springframework</groupId>
@@ -36,6 +48,51 @@
                 <groupId>org.springframework.integration</groupId>
                 <artifactId>spring-integration-core</artifactId>
                 <version>${spring.integration.version}</version>
+            </dependency>
+            <!--spring-jms-->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-jms</artifactId>
+                <version>${spring.core.version}</version>
+            </dependency>
+
+            <!--mq-->
+            <dependency>
+                <groupId>com.ibm</groupId>
+                <artifactId>com.ibm.mq</artifactId>
+                <version>5.3.07</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ibm</groupId>
+                <artifactId>com.ibm.mqjms</artifactId>
+                <version>5.3.07</version>
+            </dependency>
+            <dependency>
+                <groupId>com.ibm.disthub2</groupId>
+                <artifactId>dhbcore</artifactId>
+                <version>6.0.0</version>
+            </dependency>
+            <!--com.sun.messaging.mq-->
+            <dependency>
+                <groupId>com.sun.messaging.mq</groupId>
+                <artifactId>imq</artifactId>
+                <version>4.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.messaging.mq</groupId>
+                <artifactId>imqxm</artifactId>
+                <version>4.4</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sun.messaging.mq</groupId>
+                <artifactId>jaxm-api</artifactId>
+                <version>4.4</version>
+            </dependency>
+            <!--jms-->
+            <dependency>
+                <groupId>javax.jms</groupId>
+                <artifactId>jms</artifactId>
+                <version>1.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
