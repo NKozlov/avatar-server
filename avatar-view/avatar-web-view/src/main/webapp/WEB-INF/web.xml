@@ -14,14 +14,30 @@
         </param-value>
     </context-param>
 
+    <!--<servlet>-->
+    <!--<servlet-name>spring-dispatcher</servlet-name>-->
+    <!--<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>-->
+    <!--<load-on-startup>1</load-on-startup>-->
+    <!--</servlet>-->
+
     <servlet>
-        <servlet-name>spring-dispatcher</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <servlet-name>spring-ws</servlet-name>
+
+        <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:ru/lanit/bpm/avatar/service/integration-context.xml</param-value>
+        </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
+    <!--<servlet-mapping>-->
+    <!--<servlet-name>spring-dispatcher</servlet-name>-->
+    <!--<url-pattern>/</url-pattern>-->
+    <!--</servlet-mapping>-->
+
     <servlet-mapping>
-        <servlet-name>spring-dispatcher</servlet-name>
-        <url-pattern>/</url-pattern>
+        <servlet-name>spring-ws</servlet-name>
+        <url-pattern>/echoservice</url-pattern>
     </servlet-mapping>
 </web-app>
